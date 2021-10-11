@@ -1,0 +1,44 @@
+.logo {
+  display: flex;
+  align-items: baseline;
+  font-family: 'Work Sans', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23px;
+  color: #1f1e25;
+
+  @media (max-width: 1023px) {
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  &--page-footer {
+    position: absolute;
+    margin-top: -10px;
+
+    @media (max-width: 1023px) {
+      position: static;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.logo svg {
+  flex-shrink: 0;
+  margin-right: 10px;
+
+  @media (max-width: 1023px) {
+    width: 24px;
+    height: 22px;
+  }
+
+  @media (max-width: 767px) {
+    width: 18px;
+    height: 17px;
+  }
+}

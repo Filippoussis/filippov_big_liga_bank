@@ -1,0 +1,25 @@
+.official {
+  padding-top: 30px;
+  font-size: 12px;
+  line-height: 17px;
+  color: #707c87;
+
+  @media (max-width: 1023px) {
+    display: block;
+    order: 1;
+    padding-top: 0;
+  }
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.official address {
+  font-style: normal;
+}
+
+.official p {
+  margin-top: 0;
+  margin-bottom: 0;
+}

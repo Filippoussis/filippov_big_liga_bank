@@ -1,0 +1,57 @@
+.tabs-nav {
+  display: flex;
+  justify-content: space-between;
+  height: 93px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: calc(50% - 585px);
+  padding-right: calc(50% - 585px);
+  list-style: none;
+}
+
+.tabs-nav__item {
+  width: 25%;
+}
+
+.tabs-nav__control {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 500;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+
+  &--active {
+    background-color: #f6f7ff;
+  }
+}
+
+.tabs-nav__label {
+  padding-left: 38px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-repeat: no-repeat;
+  background-position-x: 0;
+  background-position-y: 50%;
+
+  &--deposits {
+    background-image: url('./vault.svg');
+  }
+
+  &--credits {
+    background-image: url('./cards.svg');
+  }
+
+  &--insurance {
+    background-image: url('./security.svg');
+  }
+
+  &--online-services {
+    background-image: url('./phone.svg');
+  }
+}

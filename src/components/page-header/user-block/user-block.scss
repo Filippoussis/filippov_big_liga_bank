@@ -1,0 +1,48 @@
+.user-block {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 22px;
+  text-decoration: none;
+  color: #1f1e25;
+
+  &:hover {
+    text-decoration: underline;
+    color: #2c36f2;
+  }
+}
+
+.user-block .user-block__label {
+  margin-left: 10px;
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.user-block svg {
+  @media (max-width: 767px) {
+    width: 14px;
+    height: 16px;
+  }
+}
+
+.user-block--shown {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-top: 1px solid #c1c2ca;
+  border-bottom: 1px solid #c1c2ca;
+}
+
+.user-block--shown .user-block__label {
+  display: inline;
+  margin-left: 10px;
+}
+
+.user-block--shown svg {
+  width: 20px;
+  height: 22px;
+}

@@ -1,0 +1,13 @@
+.close-button {
+  display: none;
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+  background-color: transparent;
+  appearance: none;
+
+  &--shown {
+    display: block;
+    margin-left: auto;
+  }
+}
