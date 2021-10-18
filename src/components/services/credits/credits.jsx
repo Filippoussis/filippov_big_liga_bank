@@ -9,7 +9,7 @@ import creditsMobile1xWebp from './credits-mobile1x.webp';
 
 function Credits() {
   return (
-    <section className="tab__item">
+    <section className="tab">
       <div className="tab__wrapper">
         <div className="tab__content">
           <h3 className="tab__title">Лига Банк выдает кредиты<br></br>под любые цели</h3>
