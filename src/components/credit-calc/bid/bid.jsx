@@ -47,7 +47,7 @@ function Bid({data}) {
       </dl>
       <div className="bid__control">
         <label className="bid__control-name" htmlFor="name">
-          <input type="text" id="name" name="name" placeholder="ФИО" required />
+          <input type="text" id="name" name="name" placeholder="ФИО" autoFocus required />
         </label>
         <label className="bid__control-tel" htmlFor="tel">
           <input type="text" id="tel" name="tel" placeholder="Телефон" required />
