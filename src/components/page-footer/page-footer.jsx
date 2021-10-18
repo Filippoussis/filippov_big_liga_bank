@@ -14,7 +14,7 @@ function Footer() {
     <footer className="page-footer">
       <div className="page-footer__wrapper">
         <div className="page-footer__col page-footer__col--1">
-          <Logo />
+          <Logo isFooter />
           <Official />
           <SiteSections />
         </div>
