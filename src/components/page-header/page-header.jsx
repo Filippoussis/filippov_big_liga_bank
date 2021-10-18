@@ -47,7 +47,7 @@ function PageHeader() {
       <div className="page-header__wrapper">
         <div className={`page-header__short-menu ${shortMenuClassMod}`}>
           <Humburger isOpenMenu={isOpenMenu} openMenu={openMenu} />
-          <Logo />
+          <Logo isFooter={false} />
           <CloseButton isOpenMenu={isOpenMenu} closeMenu={closeMenu} />
         </div>
         <div className={`page-header__full-menu ${fullMenuClassMod}`}>
