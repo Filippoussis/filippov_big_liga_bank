@@ -10,7 +10,7 @@ import onlineServicesMobile1xWebp from './online-services-mobile1x.webp';
 
 function OnlineServices() {
   return (
-    <section className="tab__item">
+    <section className="tab">
       <div className="tab__wrapper">
         <div className="tab__content">
           <h3 className="tab__title">Лига Банк — это огромное количество онлайн-сервисов для вашего удобства</h3>
