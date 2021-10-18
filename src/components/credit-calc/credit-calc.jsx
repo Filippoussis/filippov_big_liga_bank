@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import GoalSelection from './goal-selection/goal-selection';
 import Mortgage from './mortgage/mortgage';
 import Autocredit from './autocredit/autocredit';
+import Bid from './bid/bid';
 
 import './credit-calc.scss';
 
@@ -14,8 +15,10 @@ const Goals = {
 function CreditCalc() {
 
   const [goal, selectGoal] = useState('');
+  const [bidData, setBidData] = useState(null);
 
   const handleSelectGoal = (value) => selectGoal(value);
+  const handleShowBid = (data) => setBidData(data);
 
   const parametersClassMod = goal !== '' ? 'credit-calc__parameters--show' : '';
 
@@ -30,10 +33,11 @@ function CreditCalc() {
           </fieldset>
           <fieldset className={`credit-calc__parameters ${parametersClassMod}`}>
             <legend>Шаг 2. Введите параметры кредита</legend>
-            {goal === Goals.MORTGAGE && <Mortgage />}
-            {goal === Goals.AUTOCREDIT && <Autocredit />}
+            {goal === Goals.MORTGAGE && <Mortgage onShowBid={handleShowBid} />}
+            {goal === Goals.AUTOCREDIT && <Autocredit onShowBid={handleShowBid} />}
           </fieldset>
         </div>
+        {bidData && <Bid data={bidData} />}
       </div>
     </section>
   );
