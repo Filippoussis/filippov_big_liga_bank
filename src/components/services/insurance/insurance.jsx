@@ -10,7 +10,7 @@ import insuranceMobile1xWebp from './insurance-mobile1x.webp';
 
 function Insurance() {
   return (
-    <section className="tab__item">
+    <section className="tab">
       <div className="tab__wrapper">
         <div className="tab__content">
           <h3 className="tab__title">Лига Страхование — застрахуем все что захотите</h3>
