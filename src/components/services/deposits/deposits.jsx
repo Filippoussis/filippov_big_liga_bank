@@ -8,11 +8,9 @@ import depositsTablet1xWebp from './deposits-tablet1x.webp';
 import depositsMobile2xWebp from './deposits-mobile2x.webp';
 import depositsMobile1xWebp from './deposits-mobile1x.webp';
 
-import './deposits.scss';
-
 function Deposits() {
   return (
-    <section className="tab__item">
+    <section className="tab">
       <div className="tab__wrapper">
         <div className="tab__content">
           <h3 className="tab__title">Вклады Лига Банка – это выгодная инвестиция в свое будущее</h3>
