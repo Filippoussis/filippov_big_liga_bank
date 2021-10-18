@@ -6,6 +6,7 @@ import FocusTrap from 'focus-trap-react';
 import {setBodyScroll} from '../../../utils';
 
 import Logo from '../../logo/logo';
+import iconEye from './eye.svg';
 
 import './modal.scss';
 
@@ -15,6 +16,8 @@ function Modal({onActive}) {
     username: '',
     password: '',
   });
+
+  const [isShowPassword, setShowPassword] = useState(false);
 
   const handleClick = () => {
     setBodyScroll();
@@ -30,6 +33,8 @@ function Modal({onActive}) {
     }));
   };
 
+  const handleEyeMouseDown = () => setShowPassword((state) => !state);
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
@@ -37,6 +42,8 @@ function Modal({onActive}) {
     setBodyScroll();
     onActive(false);
   };
+
+  const typeInput = !isShowPassword ? 'password' : 'text';
 
   const {username, password} = formData;
 
@@ -56,9 +63,12 @@ function Modal({onActive}) {
             <span>Логин</span>
             <input type="text" id="username" name="username" className="modal__input" autoFocus defaultValue={username} required />
           </label>
-          <label htmlFor="password" className="modal__label">
+          <label htmlFor="password" className="modal__label modal__label--password">
             <span>Пароль</span>
-            <input id="password" name="password" type="password" className="modal__input" defaultValue={password} required />
+            <input id="password" name="password" type={typeInput} className="modal__input" defaultValue={password} required/>
+            <button className="modal__icon-password" type="button" onMouseDown={handleEyeMouseDown} onMouseUp={handleEyeMouseDown}>
+              <img src={iconEye} alt="Иконка в виде глаза для открытия или скрытия пароля" width="22" height="12" />
+            </button>
           </label>
           <Link to="#" className="modal__link">Забыли пароль?</Link>
           <button type="submit" className="modal__submit">Войти</button>
