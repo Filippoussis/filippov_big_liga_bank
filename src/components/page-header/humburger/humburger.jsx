@@ -22,8 +22,8 @@ function Humburger({isOpenMenu, openMenu}) {
 }
 
 Humburger.propTypes = {
-  isOpenMenu: PropTypes.bool,
-  openMenu: PropTypes.func,
+  isOpenMenu: PropTypes.bool.isRequired,
+  openMenu: PropTypes.func.isRequired,
 };
 
 export default Humburger;
