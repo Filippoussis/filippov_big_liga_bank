@@ -1,39 +1,21 @@
-import React, {useState} from 'react';
+import React from 'react';
+import {useMediaQuery} from 'react-responsive';
 
-import Deposits from './deposits/deposits';
-import Credits from './credits/credits';
-import Insurance from './insurance/insurance';
-import OnlineServices from './online-services/online-services';
-import TabsNav from './tabs-nav/tabs-nav';
+import TabServices from './tab-services/tab-services';
+import SwiperServices from './swiper-services/swiper-services';
 
 import './services.scss';
-
-const DEFAULT_TAB = 'Вклады';
+import './tab.scss';
 
 function Services() {
 
-  const [activeTab, setActiveTab] = useState(DEFAULT_TAB);
-  const handleSelectTab = (label) => setActiveTab(label);
-
-  const switchTab = (tab) => {
-    switch(tab) {
-      case 'Вклады':
-        return <Deposits />;
-      case 'Кредиты':
-        return <Credits />;
-      case 'Страхование':
-        return <Insurance />;
-      case 'Онлайн-сервисы':
-        return <OnlineServices />;
-      default:
-        return null;
-    }
-  };
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1224px)',
+  });
 
   return (
     <div className="services">
-      <TabsNav activeTab={activeTab} onSelectTab={handleSelectTab} />
-      {switchTab(activeTab)}
+      {isDesktopOrLaptop ? <TabServices /> : <SwiperServices />}
     </div>
   );
 }
