@@ -45,7 +45,7 @@ function Modal({onActive}) {
       <div className="modal" onClick={handleClick}>
         <form className="modal__form" onClick={(evt) => evt.stopPropagation()} onSubmit={handleSubmit} onChange={handleChange}>
           <div className="modal__header">
-            <Logo />
+            <Logo isFooter={false} />
             <button type="button" className="modal__close" onClick={handleClick} aria-label="Кнопка Закрыть">
               <svg width="16" height="16">
                 <use xlinkHref="#close"/>
