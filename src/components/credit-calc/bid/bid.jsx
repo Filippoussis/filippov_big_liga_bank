@@ -1,39 +1,68 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Bid() {
+import {getCostString} from '../../../utils';
+
+import './bid.scss';
+
+const purposeMap = {
+  'ипотеки': {
+    labelFirst: 'Ипотека',
+    labelSecond: 'недвижимости',
+  },
+  'автокредита': {
+    labelFirst: 'Автокредит',
+    labelSecond: 'автомобиля',
+  },
+};
+
+function Bid({data}) {
+
+  const {label, sum, payment, period} = data;
+
   return (
-    <section className="bid">
+    <form className="bid">
       <h3>Шаг 3. Оформление заявки</h3>
       <dl>
-        <div>
+        <div className="bid__item">
           <dt>Номер заявки</dt>
           <dd>№ 0010</dd>
         </div>
-        <div>
+        <div className="bid__item">
           <dt>Цель кредита</dt>
-          <dd>Ипотека</dd>
+          <dd>{purposeMap[label].labelFirst}</dd>
         </div>
-        <div>
-          <dt>Стоимость недвижимости</dt>
-          <dd>2 000 000 рублей</dd>
+        <div className="bid__item">
+          <dt>{`Стоимость ${purposeMap[label].labelSecond}`}</dt>
+          <dd>{getCostString(sum)}</dd>
         </div>
-        <div>
+        <div className="bid__item">
           <dt>Первоначальный взнос</dt>
-          <dd>200 000 рублей</dd>
+          <dd>{getCostString(payment)}</dd>
         </div>
-        <div>
+        <div className="bid__item">
           <dt>Срок кредитования</dt>
-          <dd>5 лет</dd>
+          <dd>{period}</dd>
         </div>
       </dl>
-      <div>
-        <input type="text" placeholder="ФИО" />
-        <input type="text" placeholder="Телефон" />
-        <input type="text" placeholder="E-mail" />
+      <div className="bid__control">
+        <label className="bid__control-name" htmlFor="name">
+          <input type="text" id="name" name="name" placeholder="ФИО" required />
+        </label>
+        <label className="bid__control-tel" htmlFor="tel">
+          <input type="text" id="tel" name="tel" placeholder="Телефон" required />
+        </label>
+        <label className="bid__control-email" htmlFor="email">
+          <input type="text" id="email" name="email" placeholder="E-mail" required />
+        </label>
       </div>
-      <button className="bid__button" type="button">Отправить</button>
-    </section>
+      <button className="bid__button" type="submit">Отправить</button>
+    </form>
   );
 }
+
+Bid.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export default Bid;
