@@ -1,1 +1,28 @@
+.swiper-pagination {
+  padding-bottom: 55px;
 
+  @media (max-width: 1023px) {
+    padding-bottom: 65px;
+  }
+
+  @media (max-width: 767px) {
+    padding-bottom: 25px;
+  }
+}
+
+.swiper-pagination-bullet {
+  opacity: 1;
+  background-color: #2028b6;
+  width: 8px;
+  height: 8px;
+
+  @media (max-width: 767px) {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background-color: #f6f7ff;
+}
