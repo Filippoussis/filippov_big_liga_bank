@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import PropTypes from 'prop-types';
 
 import InvalidMessage from '../invalid-message/invalid-message';
+import RejectedMessage from '../rejected-message/rejected-message';
 import Proposal from '../proposal/proposal';
 
 import {
@@ -10,6 +12,7 @@ import {
 
 const PurposeData = {
   LABEL: 'автокредита',
+  LIMIT: 200000,
   DEFAULT_COST: 2000000,
   MIN_COST: 500000,
   MAX_COST: 5000000,
@@ -22,7 +25,7 @@ const PurposeData = {
   STEP_PERIOD: 1,
 };
 
-function Autocredit() {
+function Autocredit({onShowBid}) {
 
   const [cost, setCost] = useState(getCostString(PurposeData.DEFAULT_COST));
   const [initialPercent, setInitialPercent] = useState(PurposeData.MIN_PERCENT);
@@ -263,9 +266,17 @@ function Autocredit() {
         />
         <span className="credit-calc__label-title">Оформить Страхование жизни в нашем банке</span>
       </label>
-      <Proposal label={PurposeData.LABEL} sum={sumAutocredit} rate={autocreditRate} payment={monthPayment} income={income} />
+      {
+        sumAutocredit > PurposeData.LIMIT
+          ? <Proposal label={PurposeData.LABEL} sum={sumAutocredit} rate={autocreditRate} payment={monthPayment} period={creditPeriod} income={income} onShowBid={onShowBid} />
+          : <RejectedMessage label={PurposeData.LABEL} limit={PurposeData.LIMIT} />
+      }
     </>
   );
 }
+
+Autocredit.propTypes = {
+  onShowBid: PropTypes.func.isRequired,
+};
 
 export default Autocredit;
