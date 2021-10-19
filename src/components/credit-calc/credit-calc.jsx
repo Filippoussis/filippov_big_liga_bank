@@ -29,7 +29,7 @@ function CreditCalc() {
         <div className="credit-calc__purpose">
           <fieldset>
             <legend>Шаг 1. Цель кредита</legend>
-            <GoalSelection selectGoal={handleSelectGoal} />
+            <GoalSelection onSelectGoal={handleSelectGoal} />
           </fieldset>
           <fieldset className={`credit-calc__parameters ${parametersClassMod}`}>
             <legend>Шаг 2. Введите параметры кредита</legend>

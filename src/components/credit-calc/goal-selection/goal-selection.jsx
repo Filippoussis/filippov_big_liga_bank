@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
 
-function GoalSelection({selectGoal}) {
+function GoalSelection({onSelectGoal}) {
 
   const options = [
     {value: 'mortgage', label: 'Ипотечное кредитование'},
@@ -50,7 +50,7 @@ function GoalSelection({selectGoal}) {
   };
 
   const handleChangeGoal = (evt) => {
-    selectGoal(evt.value);
+    onSelectGoal(evt.value);
   };
 
   return (
@@ -65,7 +65,7 @@ function GoalSelection({selectGoal}) {
 }
 
 GoalSelection.propTypes = {
-  selectGoal: PropTypes.func.isRequired,
+  onSelectGoal: PropTypes.func.isRequired,
 };
 
 export default GoalSelection;

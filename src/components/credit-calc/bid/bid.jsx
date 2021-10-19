@@ -92,7 +92,12 @@ function Bid({data}) {
 }
 
 Bid.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    sum: PropTypes.number.isRequired,
+    payment: PropTypes.number.isRequired,
+    period: PropTypes.string.isRequired,
+  }),
 };
 
 export default Bid;

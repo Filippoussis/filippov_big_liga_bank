@@ -4,11 +4,11 @@ import {Link} from 'react-router-dom';
 
 import './site-menu-item.scss';
 
-function SiteMenuItem({item, setActiveItem, isActiveItem}) {
+function SiteMenuItem({item, onActiveItem, isActiveItem}) {
 
   const handleClick = (evt) => {
     evt.preventDefault();
-    setActiveItem(evt.target.dataset.value);
+    onActiveItem(evt.target.dataset.value);
   };
 
   const classMod = item === isActiveItem ? 'site-menu-item--active' : '';
@@ -17,9 +17,9 @@ function SiteMenuItem({item, setActiveItem, isActiveItem}) {
 }
 
 SiteMenuItem.propTypes = {
-  item: PropTypes.string,
-  setActiveItem: PropTypes.func,
-  isActiveItem: PropTypes.string,
+  item: PropTypes.string.isRequired,
+  onActiveItem: PropTypes.func.isRequired,
+  isActiveItem: PropTypes.string.isRequired,
 };
 
 export default SiteMenuItem;

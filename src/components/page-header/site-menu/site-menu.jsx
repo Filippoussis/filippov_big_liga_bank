@@ -5,17 +5,17 @@ import SiteMenuItem from './site-menu-item/site-menu-item';
 
 import './site-menu.scss';
 
-import {SITE_MENU_HEADER} from '../../../const';
+import {HEADER_MENU_ITEMS} from '../../../const';
 
 function SiteMenu({isOpenMenu}) {
 
-  const [isActiveItem, setActiveItem] = useState(null);
+  const [isActiveItem, setActiveItem] = useState('');
 
   const classMod = isOpenMenu ? 'site-menu--shown' : '';
 
-  const items = SITE_MENU_HEADER.map((item) => (
+  const items = HEADER_MENU_ITEMS.map((item) => (
     <li key={item}>
-      <SiteMenuItem item={item} isActiveItem={isActiveItem} setActiveItem={setActiveItem}/>
+      <SiteMenuItem item={item} isActiveItem={isActiveItem} onActiveItem={setActiveItem}/>
     </li>
   ));
 
@@ -27,7 +27,7 @@ function SiteMenu({isOpenMenu}) {
 }
 
 SiteMenu.propTypes = {
-  isOpenMenu: PropTypes.bool,
+  isOpenMenu: PropTypes.bool.isRequired,
 };
 
 export default SiteMenu;

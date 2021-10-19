@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import './humburger.scss';
 
-function Humburger({isOpenMenu, openMenu}) {
+function Humburger({isOpenMenu, onShowMenu}) {
 
   const handleClick = () => {
     if (isOpenMenu) {
       return;
     }
-    openMenu();
+    onShowMenu();
   };
 
   return (
@@ -23,7 +23,7 @@ function Humburger({isOpenMenu, openMenu}) {
 
 Humburger.propTypes = {
   isOpenMenu: PropTypes.bool.isRequired,
-  openMenu: PropTypes.func.isRequired,
+  onShowMenu: PropTypes.func.isRequired,
 };
 
 export default Humburger;

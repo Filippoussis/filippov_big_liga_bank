@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 
 import './close-button.scss';
 
-function CloseButton({isOpenMenu, closeMenu}) {
+function CloseButton({isOpenMenu, onCloseMenu}) {
+
+  const handleClickButton = () => onCloseMenu();
 
   const classMod = isOpenMenu ? 'close-button--shown' : '';
 
   return (
-    <button className={`close-button ${classMod}`} type="button" onClick={closeMenu}>
+    <button className={`close-button ${classMod}`} type="button" onClick={handleClickButton}>
       <svg width="14" height="14">
         <use xlinkHref="#close"/>
       </svg>
@@ -17,8 +19,8 @@ function CloseButton({isOpenMenu, closeMenu}) {
 }
 
 CloseButton.propTypes = {
-  isOpenMenu: PropTypes.bool,
-  closeMenu: PropTypes.func,
+  isOpenMenu: PropTypes.bool.isRequired,
+  onCloseMenu: PropTypes.func.isRequired,
 };
 
 export default CloseButton;

@@ -15,16 +15,21 @@ function TabServices() {
 
   const switchTab = (tab) => {
     switch(tab) {
-      case 'Вклады':
+      case 'Вклады': {
         return <Deposits />;
-      case 'Кредиты':
+      }
+      case 'Кредиты': {
         return <Credits />;
-      case 'Страхование':
+      }
+      case 'Страхование': {
         return <Insurance />;
-      case 'Онлайн-сервисы':
+      }
+      case 'Онлайн-сервисы': {
         return <OnlineServices />;
-      default:
+      }
+      default: {
         return null;
+      }
     }
   };
 
