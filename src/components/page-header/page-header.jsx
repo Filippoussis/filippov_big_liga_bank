@@ -16,8 +16,8 @@ function PageHeader() {
   const [isOpenMenu, toggleMenu] = useState(false);
   const [isModalActive, setModalActive] = useState(false);
 
-  const openMenu = () => toggleMenu(true);
-  const closeMenu = () => toggleMenu(false);
+  const handleOpenButtonClick = () => toggleMenu(true);
+  const handleCloseButtonClick = () => toggleMenu(false);
 
   const handleKeyDownEsc = useCallback((event) => {
     if(event.keyCode === KEY_CODE_ESCAPE) {
@@ -46,9 +46,9 @@ function PageHeader() {
     <header className="page-header">
       <div className="page-header__wrapper">
         <div className={`page-header__short-menu ${shortMenuClassMod}`}>
-          <Humburger isOpenMenu={isOpenMenu} onShowMenu={openMenu} />
+          <Humburger isOpenMenu={isOpenMenu} onShowMenu={handleOpenButtonClick} />
           <Logo isFooter={false} />
-          <CloseButton isOpenMenu={isOpenMenu} onCloseMenu={closeMenu} />
+          <CloseButton isOpenMenu={isOpenMenu} onCloseMenu={handleCloseButtonClick} />
         </div>
         <div className={`page-header__full-menu ${fullMenuClassMod}`}>
           <SiteMenu isOpenMenu={isOpenMenu} />
