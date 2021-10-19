@@ -79,7 +79,7 @@ function Modal({onActive}) {
 }
 
 Modal.propTypes = {
-  onActive: PropTypes.func,
+  onActive: PropTypes.func.isRequired,
 };
 
 export default Modal;
