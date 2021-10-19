@@ -1,22 +1,22 @@
-export const SITE_MENU_HEADER = [
+const HEADER_MENU_ITEMS= [
   'Услуги',
   'Рассчитать кредит',
   'Конвертер валют',
   'Контакты',
 ];
 
-export const SITE_MENU_FOOTER = [
+const FOOTER_MENU_ITEMS = [
   'Услуги',
   'Рассчитать кредит',
   'Контакты',
   'Задать вопрос',
 ];
 
-export const KEY_CODE_ESCAPE = 27;
+const KEY_CODE_ESCAPE = 27;
 
-export const TABS_NAV_ITEMS = ['Вклады', 'Кредиты', 'Страхование', 'Онлайн-сервисы'];
+const TABS_NAV_ITEMS = ['Вклады', 'Кредиты', 'Страхование', 'Онлайн-сервисы'];
 
-export const BANK_DEPARTMENTS_COORDS = [
+const BANK_DEPARTMENTS_COORDS = [
   {
     id: 1,
     title: 'Москва',
@@ -48,3 +48,11 @@ export const BANK_DEPARTMENTS_COORDS = [
     LNG: '73.368221',
   },
 ];
+
+export {
+  HEADER_MENU_ITEMS,
+  FOOTER_MENU_ITEMS,
+  KEY_CODE_ESCAPE,
+  TABS_NAV_ITEMS,
+  BANK_DEPARTMENTS_COORDS
+};
