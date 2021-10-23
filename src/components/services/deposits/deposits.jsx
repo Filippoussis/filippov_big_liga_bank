@@ -13,7 +13,7 @@ function Deposits() {
     <section className="tab">
       <div className="tab__wrapper">
         <div className="tab__content">
-          <h3 className="tab__title">Вклады Лига Банка – это выгодная инвестиция в свое будущее</h3>
+          <h2 className="tab__title">Вклады Лига Банка – это выгодная инвестиция в свое будущее</h2>
           <ul className="tab__list">
             <li>Проценты по вкладам до 7%</li>
             <li>Разнообразные условия</li>

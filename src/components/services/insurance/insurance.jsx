@@ -13,7 +13,7 @@ function Insurance() {
     <section className="tab">
       <div className="tab__wrapper">
         <div className="tab__content">
-          <h3 className="tab__title">Лига Страхование — застрахуем все что захотите</h3>
+          <h2 className="tab__title">Лига Страхование — застрахуем все что захотите</h2>
           <ul className="tab__list">
             <li>Автомобильное страхование</li>
             <li>Страхование жизни и здоровья</li>

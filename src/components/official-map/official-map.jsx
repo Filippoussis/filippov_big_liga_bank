@@ -19,7 +19,7 @@ function OfficialMap() {
         <h2>Отделения Лига Банка</h2>
         <div className="official-map__frame">
           <YMaps>
-            <Map defaultState={{center: [CenterCoords.LAT, CenterCoords.LNG], zoom: 5}} width="100%" height="100%">
+            <Map defaultState={{center: [CenterCoords.LAT, CenterCoords.LNG], zoom: 5}} options={{suppressMapOpenBlock: true}} width="100%" height="100%">
               {BANK_DEPARTMENTS_COORDS.map((item) => (
                 <Placemark
                   key={item.id}

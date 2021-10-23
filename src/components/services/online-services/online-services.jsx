@@ -13,7 +13,7 @@ function OnlineServices() {
     <section className="tab">
       <div className="tab__wrapper tab__wrapper--online-services">
         <div className="tab__content">
-          <h3 className="tab__title">Лига Банк — это огромное количество онлайн-сервисов для вашего удобства</h3>
+          <h2 className="tab__title">Лига Банк — это огромное количество онлайн-сервисов для вашего удобства</h2>
           <ul className="tab__list tab__list--online-services">
             <li>Мобильный банк, который всегда под рукой</li>
             <li>Приложение Лига-проездной позволит вам оплачивать билеты по всему миру</li>

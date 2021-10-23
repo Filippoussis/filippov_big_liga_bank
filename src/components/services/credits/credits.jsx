@@ -12,7 +12,7 @@ function Credits() {
     <section className="tab">
       <div className="tab__wrapper">
         <div className="tab__content">
-          <h3 className="tab__title">Лига Банк выдает кредиты<br></br>под любые цели</h3>
+          <h2 className="tab__title">Лига Банк выдает кредиты<br></br>под любые цели</h2>
           <ul className="tab__list">
             <li>Ипотечный кредит</li>
             <li>Автокредит</li>
