@@ -10,7 +10,7 @@ import slide3mobile2xWebp from './slide3mobile2x.webp';
 
 function Slide3() {
   return (
-    <section className="slide slide--3">
+    <section className="slide">
       <div className="slide__wrapper">
         <div className="slide__header">
           <h1 className="slide__title">Лига Банк</h1>

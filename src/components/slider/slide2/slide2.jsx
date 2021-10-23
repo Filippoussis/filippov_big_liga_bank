@@ -7,8 +7,6 @@ import slide2tablet2xWebp from './slide2tablet2x.webp';
 import slide2mobile1xWebp from './slide2mobile1x.webp';
 import slide2mobile2xWebp from './slide2mobile2x.webp';
 
-import './slide2.scss';
-
 function Slide2() {
   return (
     <section className="slide">
