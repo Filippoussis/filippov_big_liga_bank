@@ -16,8 +16,15 @@ function PageHeader() {
   const [isOpenMenu, toggleMenu] = useState(false);
   const [isModalActive, setModalActive] = useState(false);
 
-  const handleOpenButtonClick = () => toggleMenu(true);
-  const handleCloseButtonClick = () => toggleMenu(false);
+  const handleOpenButtonClick = () => {
+    toggleMenu(true);
+    setNoBodyScroll();
+  };
+
+  const handleCloseButtonClick = () => {
+    toggleMenu(false);
+    setBodyScroll();
+  };
 
   const handleKeyDownEsc = useCallback((event) => {
     if(event.keyCode === KEY_CODE_ESCAPE) {
@@ -35,6 +42,10 @@ function PageHeader() {
   }, [handleKeyDownEsc]);
 
   const handleClickEnter = () => {
+    if (isOpenMenu) {
+      toggleMenu(false);
+    }
+
     setNoBodyScroll();
     setModalActive(true);
   };

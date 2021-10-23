@@ -33,7 +33,7 @@ function Modal({onActive}) {
     }));
   };
 
-  const handleEyeMouseDown = () => setShowPassword((state) => !state);
+  const handleButtonEyeChange = () => setShowPassword((state) => !state);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -66,7 +66,14 @@ function Modal({onActive}) {
           <label htmlFor="password" className="modal__label modal__label--password">
             <span>Пароль</span>
             <input id="password" name="password" type={typeInput} className="modal__input" defaultValue={password} required/>
-            <button className="modal__icon-password" type="button" onMouseDown={handleEyeMouseDown} onMouseUp={handleEyeMouseDown}>
+            <button
+              className="modal__icon-password"
+              type="button"
+              onMouseDown={handleButtonEyeChange}
+              onMouseUp={handleButtonEyeChange}
+              onTouchStart={handleButtonEyeChange}
+              onTouchEnd={handleButtonEyeChange}
+            >
               <img src={iconEye} alt="Иконка в виде глаза для открытия или скрытия пароля" width="22" height="12" />
             </button>
           </label>
