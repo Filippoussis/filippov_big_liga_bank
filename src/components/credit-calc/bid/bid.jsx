@@ -1,6 +1,8 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import PropTypes from 'prop-types';
 
+import InputMask from 'react-input-mask';
+
 import SuccessMessage from '../success-message/success-message';
 
 import {KEY_CODE_ESCAPE} from '../../../const';
@@ -24,6 +26,9 @@ function Bid({data}) {
   const {label, sum, payment, period} = data;
 
   const [isModalActive, setModalActive] = useState(false);
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
 
   const handleKeyDownEsc = useCallback((event) => {
     if(event.keyCode === KEY_CODE_ESCAPE) {
@@ -43,6 +48,12 @@ function Bid({data}) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
+    const formData = {name, phone, email};
+    localStorage.setItem('formData', JSON.stringify(formData));
+
+    setName('');
+    setPhone('');
+    setEmail('');
     setNoBodyScroll();
     setModalActive(true);
   };
@@ -75,13 +86,36 @@ function Bid({data}) {
         </dl>
         <div className="bid__control">
           <label className="bid__control-name" htmlFor="name">
-            <input type="text" id="name" name="name" placeholder="ФИО" autoFocus required />
+            <input
+              onChange={(evt) => setName(evt.target.value)}
+              value={name}
+              type="text"
+              id="name"
+              name="name"
+              placeholder="ФИО"
+              autoFocus
+              required
+            />
           </label>
-          <label className="bid__control-tel" htmlFor="tel">
-            <input type="text" id="tel" name="tel" placeholder="Телефон" required />
+          <label className="bid__control-tel">
+            <InputMask
+              onChange={(evt) => setPhone(evt.target.value)}
+              value={phone}
+              placeholder="Телефон"
+              mask="+7 (999) 999 99 99"
+              required
+            />
           </label>
           <label className="bid__control-email" htmlFor="email">
-            <input type="text" id="email" name="email" placeholder="E-mail" required />
+            <input
+              onChange={(evt) => setEmail(evt.target.value)}
+              value={email}
+              type="email"
+              id="email"
+              name="email"
+              placeholder="E-mail"
+              required
+            />
           </label>
         </div>
         <button className="bid__button" type="submit">Отправить</button>

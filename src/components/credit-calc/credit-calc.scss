@@ -4,8 +4,13 @@
   padding-right: calc(50% - 683px);
 
   @media (max-width: 1023px) {
+    margin-bottom: 65px;
     padding-left: calc(50% - 384px);
     padding-right: calc(50% - 384px);
+  }
+
+  @media (max-width: 1023px) {
+    margin-bottom: 52px;
   }
 }
 
@@ -32,11 +37,13 @@
   font-weight: 700;
 
   @media (max-width: 1023px) {
+    margin-bottom: 28px;
     font-size: 32px;
     line-height: 45px;
   }
 
   @media (max-width: 767px) {
+    margin-bottom: 22px;
     font-size: 22px;
     line-height: 31px;
   }
@@ -63,11 +70,13 @@
   font-weight: 500;
 
   @media (max-width: 1023px) {
+    margin-bottom: 18px;
     font-size: 18px;
     line-height: 25px;
   }
 
   @media (max-width: 767px) {
+    margin-bottom: 13px;
     font-size: 16px;
     line-height: 22px;
   }
