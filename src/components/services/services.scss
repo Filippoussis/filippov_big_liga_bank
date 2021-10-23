@@ -4,7 +4,12 @@
   padding-right: calc(50% - 585px);
 
   @media (max-width: 1023px) {
+    margin-bottom: 68px;
     padding-left: calc(50% - 384px);
     padding-right: calc(50% - 384px);
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 52px;
   }
 }
