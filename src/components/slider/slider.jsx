@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SwiperCore, {Pagination, Autoplay} from 'swiper';
+import SwiperCore, {Pagination, Autoplay, A11y} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 
 import SlideHero from './slide-hero/slide-hero';
@@ -11,15 +11,15 @@ import 'swiper/swiper.scss';
 import './slider.scss';
 import './slide.scss';
 
-SwiperCore.use([Pagination, Autoplay]);
+SwiperCore.use([Pagination, Autoplay, A11y]);
 
 function Slider() {
   return (
     <div className="slider">
       <Swiper
         slidesPerView={1}
-        spaceBetween={30}
-        // autoplay={{delay: 4000, disableOnInteraction: false}}
+        autoplay={{delay: 4000, disableOnInteraction: false}}
+        a11y
         loop
         pagination
       >
