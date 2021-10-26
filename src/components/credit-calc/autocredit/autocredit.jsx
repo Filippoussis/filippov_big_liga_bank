@@ -68,6 +68,10 @@ function Autocredit({onShowBid}) {
       newCost = PurposeData.MIN_COST;
     }
 
+    if (newCost > PurposeData.MAX_COST) {
+      newCost = PurposeData.MAX_COST;
+    }
+
     const newInitialPayment = newCost * initialPercent / 100;
 
     setCost(getCostString(newCost));
@@ -79,6 +83,10 @@ function Autocredit({onShowBid}) {
 
     if (newCost > PurposeData.MAX_COST) {
       newCost = PurposeData.MAX_COST;
+    }
+
+    if (newCost < PurposeData.MIN_COST) {
+      newCost = PurposeData.MIN_COST;
     }
 
     const newInitialPayment = newCost * initialPercent / 100;
