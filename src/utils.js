@@ -1,9 +1,4 @@
-const setNoBodyScroll = () => document.body.style.overflow = 'hidden';
-const setBodyScroll = () => document.body.style.overflow = 'scroll';
-
-const getValueNumber = (value) => +value.toString().replace(/[^\d]/g, '');
-const getCostString = (value) => `${value.toLocaleString()} рублей`;
-const getPeriodString = (value) => `${value} лет`;
+const TIME_TITLES = ['год', 'года', 'лет'];
 
 const MONTHS_IN_YEAR = 12;
 const MOTHER_CAPITAL = 470000;
@@ -22,6 +17,22 @@ const AutocreditRate = {
   PART_INSURANCE: 8.5,
   TOTAL_INSURANCE: 3.5,
 };
+
+export const declOfNum = (number, titles) => {
+  const cases = [2, 0, 1, 1, 1, 2];
+  return titles[
+    number % 100 > 4 && number % 100 < 20
+      ? 2
+      : cases[number % 10 < 5 ? number % 10 : 5]
+  ];
+};
+
+const setNoBodyScroll = () => document.body.style.overflow = 'hidden';
+const setBodyScroll = () => document.body.style.overflow = 'scroll';
+
+const getValueNumber = (value) => +value.toString().replace(/[^\d]/g, '');
+const getCostString = (value) => `${value.toLocaleString()} рублей`;
+const getPeriodString = (value) => `${value} ${declOfNum(value, TIME_TITLES)}`;
 
 const getSumMortgage = (cost, initialPayment, isMotherCapital) => {
   const motherCapital = isMotherCapital ? MOTHER_CAPITAL : 0;
