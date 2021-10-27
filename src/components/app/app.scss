@@ -1,3 +1,6 @@
-.page-content {
-  min-height: calc(100vh - 224px - 91px);
+.main-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
 }

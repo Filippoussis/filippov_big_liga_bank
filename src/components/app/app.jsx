@@ -7,16 +7,20 @@ import CreditCalc from '../credit-calc/credit-calc';
 import OfficialMap from '../official-map/official-map';
 import PageFooter from '../page-footer/page-footer';
 
+import './app.scss';
+
 function App() {
   return (
-    <>
+    <div className="main-page">
       <PageHeader />
-      <Slider />
-      <Services />
-      <CreditCalc />
-      <OfficialMap />
+      <main>
+        <Slider />
+        <Services />
+        <CreditCalc />
+        <OfficialMap />
+      </main>
       <PageFooter />
-    </>
+    </div>
   );
 }
 

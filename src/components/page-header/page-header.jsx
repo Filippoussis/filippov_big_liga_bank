@@ -18,12 +18,12 @@ function PageHeader() {
 
   const handleOpenButtonClick = () => {
     toggleMenu(true);
-    setNoBodyScroll();
+    document.body.style = 'overflow: hidden;';
   };
 
   const handleCloseButtonClick = () => {
     toggleMenu(false);
-    setBodyScroll();
+    document.body.style = 'overflow: visible;';
   };
 
   const handleKeyDownEsc = useCallback((event) => {
