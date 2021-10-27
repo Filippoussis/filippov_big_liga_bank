@@ -40,7 +40,7 @@ function GoalSelection({onSelectGoal}) {
       border: '1px solid #1f1e25',
     }),
 
-    control: (provided, state) => ({
+    control: (provided) => ({
       ...provided,
       paddingTop: 13,
       paddingBottom: 13,
