@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback, useRef} from 'react';
 import PropTypes from 'prop-types';
 
 import InputMask from 'react-input-mask';
@@ -29,6 +29,12 @@ function Bid({data}) {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+
+  const nameRef = useRef(null);
+
+  useEffect(() => {
+    nameRef.current.focus();
+  }, []);
 
   const handleKeyDownEsc = useCallback((event) => {
     if(event.keyCode === KEY_CODE_ESCAPE) {
@@ -89,11 +95,11 @@ function Bid({data}) {
             <input
               onChange={(evt) => setName(evt.target.value)}
               value={name}
+              ref={nameRef}
               type="text"
               id="name"
               name="name"
               placeholder="ФИО"
-              autoFocus
               required
             />
           </label>

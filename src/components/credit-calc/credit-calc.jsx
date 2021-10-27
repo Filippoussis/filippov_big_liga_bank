@@ -17,7 +17,18 @@ function CreditCalc() {
   const [goal, selectGoal] = useState('');
   const [bidData, setBidData] = useState(null);
 
-  const handleSelectGoal = (value) => selectGoal(value);
+  const handleSelectGoal = (value) => {
+    if (value === goal) {
+      return;
+    }
+
+    selectGoal(value);
+
+    if (bidData) {
+      setBidData(null);
+    }
+  };
+
   const handleShowBid = (data) => setBidData(data);
 
   const parametersClassMod = goal !== '' ? 'credit-calc__parameters--show' : '';

@@ -207,7 +207,7 @@ function Autocredit({onShowBid}) {
           {`От ${PurposeData.MIN_COST.toLocaleString()} до ${PurposeData.MAX_COST.toLocaleString()} рублей`}
         </span>
       </label>
-      <label htmlFor="initial-payment">
+      <label htmlFor="initial-payment" className="credit-calc__initial-payment">
         <span className="credit-calc__label-title">Первоначальный взнос</span>
         <input
           type="text"
@@ -229,7 +229,7 @@ function Autocredit({onShowBid}) {
         />
         <span className="credit-calc__label-footer">{`${initialPercent}%`}</span>
       </label>
-      <label htmlFor="credit-period">
+      <label htmlFor="credit-period" className="credit-calc__credit-period">
         <span className="credit-calc__label-title">Срок кредитования</span>
         <input
           type="text"
