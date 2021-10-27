@@ -184,7 +184,7 @@ function Autocredit({onShowBid}) {
             className="credit-calc__cost-button credit-calc__cost-button--minus"
             type="button"
             onClick={handleClickDecCost}
-          >-
+          >–
           </button>
           <input
             className={`credit-calc__cost-input ${invalidInputCostClassMod}`}

@@ -102,12 +102,10 @@
 .credit-calc__cost-button {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   width: 50px;
   height: 100%;
-  font-size: 18px;
+  font-size: 35px;
   line-height: 18px;
-  font-weight: 500;
   border: none;
   border-radius: 4px;
   background-color: transparent;
@@ -115,11 +113,13 @@
   cursor: pointer;
 
   &--minus {
-    left: 0;
+    left: 5px;
+    transform: translateY(-55%);
   }
 
   &--plus {
-    right: 0;
+    right: 6px;
+    transform: translateY(-50%);
   }
 }
 
