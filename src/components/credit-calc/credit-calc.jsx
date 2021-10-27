@@ -38,7 +38,7 @@ function CreditCalc() {
       <div className="credit-calc__wrapper">
         <h2>Кредитный калькулятор</h2>
         <div className="credit-calc__purpose">
-          <fieldset>
+          <fieldset className="credit-calc__goal">
             <legend>Шаг 1. Цель кредита</legend>
             <GoalSelection onSelectGoal={handleSelectGoal} />
           </fieldset>
