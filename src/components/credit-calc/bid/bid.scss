@@ -118,16 +118,25 @@
   padding: 24px;
   border-radius: 4px;
   border: 1px solid #0a1e32;
+  font-size: 18px;
+  line-height: 25px;
   background-color: transparent;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 
 .bid input::placeholder {
   font-size: 18px;
+  line-height: 25px;
   letter-spacing: 0.03em;
   color: #707c87;
 
   @media (max-width: 767px) {
     font-size: 16px;
+    line-height: 22px;
   }
 }
 
