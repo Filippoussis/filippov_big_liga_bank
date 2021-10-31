@@ -1,9 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback, useMemo} from 'react';
 import PropTypes from 'prop-types';
 
 import InvalidMessage from '../invalid-message/invalid-message';
-import RejectedMessage from '../rejected-message/rejected-message';
-import Proposal from '../proposal/proposal';
 
 import {
   getValueNumber, getCostString, getPeriodString,
@@ -25,7 +23,7 @@ const PurposeData = {
   STEP_PERIOD: 1,
 };
 
-function Mortgage({onShowBid}) {
+function Mortgage({onShowProposal}) {
 
   const [cost, setCost] = useState(getCostString(PurposeData.DEFAULT_COST));
   const [initialPercent, setInitialPercent] = useState(PurposeData.MIN_PERCENT);
@@ -169,11 +167,30 @@ function Mortgage({onShowBid}) {
   const monthPayment = getMonthPayment(sumMortgage, mortgageRate, creditPeriod);
   const income = getIncome(monthPayment);
 
+  const getProposalData = useMemo(() => (
+    {
+      label: PurposeData.LABEL,
+      limit: PurposeData.LIMIT,
+      sum: sumMortgage,
+      rate: mortgageRate,
+      payment: monthPayment,
+      period: creditPeriod,
+      income: income,
+    }
+  ), [sumMortgage, mortgageRate, monthPayment, creditPeriod, income]);
+
+  const getProposalCallback = useCallback(() => {
+    onShowProposal(getProposalData);
+  }, [onShowProposal, getProposalData]);
+
+  useEffect(() => getProposalCallback(), [getProposalCallback]);
+
   const invalidInputCostClassMod = !isValidCost ? 'credit-calc__cost-input--invalid' : '';
   const invalidLabelCostClassMod = !isValidCost ? 'credit-calc__label-footer--invalid' : '';
 
   return (
     <>
+      <legend>Шаг 2. Введите параметры кредита</legend>
       <label htmlFor="cost" className="credit-calc__cost">
         <span className="credit-calc__label-title">Стоимость недвижимости</span>
         {!isValidCost && <InvalidMessage />}
@@ -262,17 +279,12 @@ function Mortgage({onShowBid}) {
         />
         <span className="credit-calc__label-title">Использовать материнский капитал</span>
       </label>
-      {
-        sumMortgage > PurposeData.LIMIT
-          ? <Proposal label={PurposeData.LABEL} sum={sumMortgage} rate={mortgageRate} payment={monthPayment} period={creditPeriod} income={income} onShowBid={onShowBid} />
-          : <RejectedMessage label={PurposeData.LABEL} limit={PurposeData.LIMIT} />
-      }
     </>
   );
 }
 
 Mortgage.propTypes = {
-  onShowBid: PropTypes.func.isRequired,
+  onShowProposal: PropTypes.func.isRequired,
 };
 
 export default Mortgage;

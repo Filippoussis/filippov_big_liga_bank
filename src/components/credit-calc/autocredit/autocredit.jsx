@@ -1,9 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback, useMemo} from 'react';
 import PropTypes from 'prop-types';
 
 import InvalidMessage from '../invalid-message/invalid-message';
-import RejectedMessage from '../rejected-message/rejected-message';
-import Proposal from '../proposal/proposal';
 
 import {
   getValueNumber, getCostString, getPeriodString,
@@ -25,7 +23,7 @@ const PurposeData = {
   STEP_PERIOD: 1,
 };
 
-function Autocredit({onShowBid}) {
+function Autocredit({onShowProposal}) {
 
   const [cost, setCost] = useState(getCostString(PurposeData.DEFAULT_COST));
   const [initialPercent, setInitialPercent] = useState(PurposeData.MIN_PERCENT);
@@ -171,11 +169,30 @@ function Autocredit({onShowBid}) {
   const monthPayment = getMonthPayment(sumAutocredit, autocreditRate, creditPeriod);
   const income = getIncome(monthPayment);
 
+  const getProposalData = useMemo(() => (
+    {
+      label: PurposeData.LABEL,
+      limit: PurposeData.LIMIT,
+      sum: sumAutocredit,
+      rate: autocreditRate,
+      payment: monthPayment,
+      period: creditPeriod,
+      income: income,
+    }
+  ), [sumAutocredit, autocreditRate, monthPayment, creditPeriod, income]);
+
+  const getProposalCallback = useCallback(() => {
+    onShowProposal(getProposalData);
+  }, [onShowProposal, getProposalData]);
+
+  useEffect(() => getProposalCallback(), [getProposalCallback]);
+
   const invalidInputCostClassMod = !isValidCost ? 'credit-calc__cost-input--invalid' : '';
   const invalidLabelCostClassMod = !isValidCost ? 'credit-calc__label-footer--invalid' : '';
 
   return (
     <>
+      <legend>Шаг 2. Введите параметры кредита</legend>
       <label htmlFor="cost" className="credit-calc__cost">
         <span className="credit-calc__label-title">Стоимость автокредита</span>
         {!isValidCost && <InvalidMessage />}
@@ -274,17 +291,12 @@ function Autocredit({onShowBid}) {
         />
         <span className="credit-calc__label-title">Оформить Страхование жизни в нашем банке</span>
       </label>
-      {
-        sumAutocredit > PurposeData.LIMIT
-          ? <Proposal label={PurposeData.LABEL} sum={sumAutocredit} rate={autocreditRate} payment={monthPayment} period={creditPeriod} income={income} onShowBid={onShowBid} />
-          : <RejectedMessage label={PurposeData.LABEL} limit={PurposeData.LIMIT} />
-      }
     </>
   );
 }
 
 Autocredit.propTypes = {
-  onShowBid: PropTypes.func.isRequired,
+  onShowProposal: PropTypes.func.isRequired,
 };
 
 export default Autocredit;

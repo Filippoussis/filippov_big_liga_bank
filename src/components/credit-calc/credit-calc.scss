@@ -1,5 +1,5 @@
 .credit-calc {
-  margin-bottom: 100px;
+  margin-bottom: 65px;
   padding-left: calc(50% - 683px);
   padding-right: calc(50% - 683px);
 
@@ -15,7 +15,6 @@
 }
 
 .credit-calc__wrapper {
-  position: relative;
   padding-left: 98px;
   padding-right: 98px;
 
@@ -219,15 +218,17 @@
   text-align: center;
 }
 
-.credit-calc .credit-calc__parameters {
-  display: none;
+.credit-calc__purpose {
+  display: flex;
+  justify-content: space-between;
 
-  &--show {
-    display: block;
+  @media (max-width: 1023px) {
+    flex-direction: column;
+    justify-content: start;
   }
 }
 
-.credit-calc__purpose {
+.credit-calc__purpose-col {
   width: 51.3%;
 
   @media (max-width: 1023px) {
