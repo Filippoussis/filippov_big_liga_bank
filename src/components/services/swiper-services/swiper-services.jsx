@@ -17,7 +17,6 @@ function SwiperServices() {
   return (
     <Swiper
       slidesPerView={1}
-      spaceBetween={30}
       loop
       pagination
     >
